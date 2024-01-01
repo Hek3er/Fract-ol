@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 17:44:24 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 19:22:58 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:48:20 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ void	render_julia(t_var *var)
 		var->y = 0;
 		while (var->y < HEIGHT)
 		{
-			var->z.r = (interpolation(var->x, -2, 2, 800) * var->zoom) + var->shift_x;
-			var->z.i = (interpolation(var->y, -2, 2, 800) * var->zoom) + var->shift_y;
+			var->z.r = (interpolation(var->x, -2, 2, 800) * var->zoom)
+				+ var->shift_x;
+			var->z.i = (interpolation(var->y, -2, 2, 800) * var->zoom)
+				+ var->shift_y;
 			var->c.r = var->real;
 			var->c.i = var->imaginary;
 			draw_julia(var);
@@ -49,7 +51,8 @@ void	render_julia(t_var *var)
 		}
 		var->x++;
 	}
-	mlx_put_image_to_window(var->data.mlx_ptr, var->data.mlx_window, var->data.img.mlx_img, 0, 0);
+	mlx_put_image_to_window(var->data.mlx_ptr, var->data.mlx_window,
+		var->data.img.mlx_img, 0, 0);
 }
 
 void	julia(t_var *var)

@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:20:25 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 19:19:39 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:47:59 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	draw_pixel(int x, int y, t_img *img, int color)
 {
 	int	offset;
-	
+
 	offset = (y * img->len) + (x * (img->bpp / 8));
 	*(unsigned int *)(img->img_data + offset) = color;
 }
@@ -50,14 +50,17 @@ void	render_mandelbrot(t_var *var)
 		{
 			var->z.r = 0;
 			var->z.i = 0;
-			var->c.r = (interpolation(var->x, -2, 2, 800) * var->zoom) + var->shift_x;
-			var->c.i = (interpolation(var->y, -2, 2, 800) * var->zoom) + var->shift_y;
+			var->c.r = (interpolation(var->x, -2, 2, 800) * var->zoom)
+				+ var->shift_x;
+			var->c.i = (interpolation(var->y, -2, 2, 800) * var->zoom)
+				+ var->shift_y;
 			draw_mandelbrot(var);
 			var->y++;
 		}
 		var->x++;
 	}
-	mlx_put_image_to_window(var->data.mlx_ptr, var->data.mlx_window, var->data.img.mlx_img, 0, 0);
+	mlx_put_image_to_window(var->data.mlx_ptr, var->data.mlx_window,
+		var->data.img.mlx_img, 0, 0);
 }
 
 void	mandelbrot(t_var *var)

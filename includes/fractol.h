@@ -6,15 +6,15 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:11:34 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:36:19 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:49:19 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
-#define FRACTOL_H
+# define FRACTOL_H
 
-#define WIDTH 800
-#define HEIGHT 800
+# define WIDTH 800
+# define HEIGHT 800
 
 # include <mlx.h>
 # include <unistd.h>
@@ -30,11 +30,11 @@ typedef struct complex
 
 typedef struct image
 {
-	void *mlx_img;
-	char *img_data;
-	int	bpp;
-	int	len;
-	int endian;
+	void	*mlx_img;
+	char	*img_data;
+	int		bpp;
+	int		len;
+	int		endian;
 }				t_img;
 
 typedef struct mlx_data
@@ -44,7 +44,7 @@ typedef struct mlx_data
 	t_img	img;
 }				t_data;
 
-typedef struct	s_var
+typedef struct s_var
 {
 	t_data			data;
 	int				id;
@@ -69,8 +69,9 @@ void	ini_mlx(t_data *data);
 void	mandelbrot(t_var *var);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_error(int n);
-int 	ft_strncmp(char *s1, char *s2, int n);
-double	interpolation(double value, double new_min, double new_max, double old_max);
+int		ft_strncmp(char *s1, char *s2, int n);
+double	interpolation(double value, double new_min, double new_max,
+			double old_max);
 double	module(t_var *var);
 void	data_init(t_var *var);
 void	init_hooks(t_data *data);

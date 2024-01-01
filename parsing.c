@@ -6,15 +6,15 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:15:53 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:37:17 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:47:04 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fractol.h"
 
-int ft_strncmp(char *s1, char *s2, int n)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	int			i;
+	int				i;
 	unsigned char	*str1;
 	unsigned char	*str2;
 
@@ -63,9 +63,9 @@ static double	get_after_deci(char *str, int i)
 	mult = 1;
 	if (str[i] == '.')
 	{
-   		i++;
-    	while (str[i] && str[i] >= '0' && str[i] <= '9')
-    	{
+		i++;
+		while (str[i] && str[i] >= '0' && str[i] <= '9')
+		{
 			tmp = tmp * 10 + (str[i] - '0');
 			mult *= 10;
 			i++;
@@ -78,7 +78,7 @@ static double	get_after_deci(char *str, int i)
 double	ft_atof(char *str)
 {
 	int		i;
-	int 	sign;
+	int		sign;
 	double	result;
 	double	tmp;
 

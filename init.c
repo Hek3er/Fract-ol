@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:32:21 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:36:06 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:46:30 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	ini_mlx(t_data *data)
 		mlx_destroy_window(data->mlx_ptr, data->mlx_window);
 		ft_error(3);
 	}
-	data->img.img_data = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp, &data->img.len, &data->img.endian);
+	data->img.img_data = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp,
+			data->img.len, &data->img.endian);
 }
 
 void	data_init(t_var *var)

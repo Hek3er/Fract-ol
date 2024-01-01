@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:42:32 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:35:50 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:44:35 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int	key_press(int keycode, t_var *var)
 		var->iteration += 10;
 	else if (keycode == 78 && var->iteration > 0)
 		var->iteration -= 10;
-	else if (keycode == 126 || keycode == 123 || keycode == 125 || keycode == 124)
+	else if (keycode == 126 || keycode == 123
+		|| keycode == 125 || keycode == 124)
 		shifting(keycode, var);
 	if (var->id == 1)
 		render_mandelbrot(var);
@@ -62,7 +63,6 @@ int	mouse_press(int button, int x, int y, t_var *var)
 		render_julia(var);
 	return (0);
 }
-
 
 void	init_hooks(t_data *data)
 {

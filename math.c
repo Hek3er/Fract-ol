@@ -6,13 +6,14 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:39:16 by azainabi          #+#    #+#             */
-/*   Updated: 2023/12/31 12:31:06 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:49:44 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fractol.h"
 
-double	interpolation(double value, double new_min, double new_max, double old_max)
+double	interpolation(double value, double new_min, double new_max,
+	double old_max)
 {
 	return (new_min + ((new_max - new_min) * (value) / (old_max)));
 }
