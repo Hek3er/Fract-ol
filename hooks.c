@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:42:32 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 17:35:07 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:35:50 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,25 @@ int	key_press(int keycode, t_var *var)
 		var->iteration -= 10;
 	else if (keycode == 126 || keycode == 123 || keycode == 125 || keycode == 124)
 		shifting(keycode, var);
-	render_image(var);
+	if (var->id == 1)
+		render_mandelbrot(var);
+	else if (var->id == 2)
+		render_julia(var);
 	return (0);
 }
 
 int	mouse_press(int button, int x, int y, t_var *var)
 {
+	(void)x;
+	(void)y;
 	if (button == 5)
 		var->zoom *= 0.7;
 	else if (button == 4)
 		var->zoom *= 1.02;
-	render_image(var);
+	if (var->id == 1)
+		render_mandelbrot(var);
+	else if (var->id == 2)
+		render_julia(var);
 	return (0);
 }
 

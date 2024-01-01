@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:11:34 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 17:19:25 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:36:19 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,23 @@ typedef struct mlx_data
 
 typedef struct	s_var
 {
-	t_data		data;
-	int			j;
-	int			x;
-	int			y;
-	int			color;
-	int			color_shift;
+	t_data			data;
+	int				id;
+	double			real;
+	double			imaginary;
+	int				j;
+	int				x;
+	int				y;
+	int				color;
+	int				color_shift;
 	double			zoom;
 	double			shift_x;
 	double			shift_y;
-	int			add;
-	int			tmp;
-	int			iteration;
-	t_complex	z;
-	t_complex	c;
+	int				add;
+	int				tmp;
+	int				iteration;
+	t_complex		z;
+	t_complex		c;
 }				t_var;
 
 void	ini_mlx(t_data *data);
@@ -69,8 +72,13 @@ void	ft_error(int n);
 int 	ft_strncmp(char *s1, char *s2, int n);
 double	interpolation(double value, double new_min, double new_max, double old_max);
 double	module(t_var *var);
-void	data_init(t_var *var, t_data *data);
+void	data_init(t_var *var);
 void	init_hooks(t_data *data);
-void	render_image(t_var *var);
+void	draw_pixel(int x, int y, t_img *img, int color);
+void	render_mandelbrot(t_var *var);
+void	julia(t_var *var);
+void	render_julia(t_var *var);
+double	ft_atof(char *str);
+void	print_error(void);
 
 #endif

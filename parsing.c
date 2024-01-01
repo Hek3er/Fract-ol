@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:15:53 by azainabi          #+#    #+#             */
-/*   Updated: 2023/12/31 10:25:19 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:37:17 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,52 @@ void	ft_error(int n)
 {
 	ft_putstr_fd("Error!\n", 2);
 	exit(n);
+}
+
+static double	get_after_deci(char *str, int i)
+{
+	double	tmp;
+	int		mult;
+
+	tmp = 0;
+	mult = 1;
+	if (str[i] == '.')
+	{
+   		i++;
+    	while (str[i] && str[i] >= '0' && str[i] <= '9')
+    	{
+			tmp = tmp * 10 + (str[i] - '0');
+			mult *= 10;
+			i++;
+		}
+		tmp /= mult;
+	}
+	return (tmp);
+}
+
+double	ft_atof(char *str)
+{
+	int		i;
+	int 	sign;
+	double	result;
+	double	tmp;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] && str[i] >= '0' && str[i] <= '9' && str[i] != '.')
+	{
+		result = result * 10 + str[i] - 48;
+		i++;
+	}
+	tmp = get_after_deci(str, i);
+	return ((result + tmp) * sign);
 }
