@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:32:21 by azainabi          #+#    #+#             */
-/*   Updated: 2023/12/31 13:42:15 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:31:42 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ void	ini_mlx(t_data *data)
 	data->img.img_data = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp, &data->img.len, &data->img.endian);
 }
 
-void	data_init(t_var *var)
+void	data_init(t_var *var, t_data *data)
 {
 	var->color_shift = 10;
 	var->zoom = 1.0;
-	var->shift_x = 0;
-	var->shift_y = 0;
+	var->shift_x = 0.0;
+	var->shift_y = 0.0;
+	var->iteration = 5;
+	var->tmp = var->iteration;
 }
