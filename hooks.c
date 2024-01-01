@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:42:32 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 16:54:18 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:35:07 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,13 @@ int	ft_close(t_var *var)
 void	shifting(int keycode, t_var *var)
 {
 	if (keycode == 126)
-	{
-		var->shift_y += 1.2;
-		render_image(var);
-	}
+		var->shift_y += 1.2 * var->zoom;
 	else if (keycode == 125)
-	{
-		var->shift_y -= 1.2;
-		render_image(var);
-	}
+		var->shift_y -= 1.2 * var->zoom;
 	else if (keycode == 123)
-	{
-		var->shift_x += 1.2;
-		render_image(var);
-	}
+		var->shift_x += 1.2 * var->zoom;
 	else if (keycode == 124)
-	{
-		var->shift_x -= 1.2;
-		render_image(var);
-	}
+		var->shift_x -= 1.2 * var->zoom;
 }
 
 int	key_press(int keycode, t_var *var)
@@ -48,31 +36,29 @@ int	key_press(int keycode, t_var *var)
 	if (keycode == 53)
 		ft_close(var);
 	else if (keycode == 69)
-	{
 		var->iteration += 10;
-		render_image(var);
-	}
-	else if (keycode == 78 )
-	{
+	else if (keycode == 78 && var->iteration > 0)
 		var->iteration -= 10;
-		render_image(var);
-	}
 	else if (keycode == 126 || keycode == 123 || keycode == 125 || keycode == 124)
 		shifting(keycode, var);
-	printf("Keypressed: %d\n", keycode);  // need to remove it
+	render_image(var);
 	return (0);
 }
 
-// int	mouse_press(int button, int x, int y, void *param)
-// {
-	
-// }
+int	mouse_press(int button, int x, int y, t_var *var)
+{
+	if (button == 5)
+		var->zoom *= 0.7;
+	else if (button == 4)
+		var->zoom *= 1.02;
+	render_image(var);
+	return (0);
+}
 
 
 void	init_hooks(t_data *data)
 {
 	mlx_hook(data->mlx_window, 2, 0, key_press, data);
-	// mlx_hook(data->mlx_window, 4, 0, mouse_press, data);
+	mlx_hook(data->mlx_window, 4, 0, mouse_press, data);
 	mlx_hook(data->mlx_window, 17, 0, ft_close, data);
-	
 }

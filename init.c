@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:32:21 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 16:31:42 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:04:46 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ini_mlx(t_data *data)
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		ft_error(1);
-	data->mlx_window = mlx_new_window(data->mlx_ptr, Width, Height, "fract-ol");
+	data->mlx_window = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "fract-ol");
 	if (!data->mlx_window)
 	{
 		ft_error(2);
 	}
-	data->img.mlx_img = mlx_new_image(data->mlx_ptr, Width, Height);
+	data->img.mlx_img = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
 	if (!data->img.mlx_img)
 	{
 		mlx_destroy_window(data->mlx_ptr, data->mlx_window);
@@ -37,6 +37,6 @@ void	data_init(t_var *var, t_data *data)
 	var->zoom = 1.0;
 	var->shift_x = 0.0;
 	var->shift_y = 0.0;
-	var->iteration = 5;
+	var->iteration = 42;
 	var->tmp = var->iteration;
 }

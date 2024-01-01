@@ -6,15 +6,15 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:11:34 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 16:53:03 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:19:25 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
-#define Width 800
-#define Height 800
+#define WIDTH 800
+#define HEIGHT 800
 
 # include <mlx.h>
 # include <unistd.h>
@@ -51,8 +51,8 @@ typedef struct	s_var
 	int			x;
 	int			y;
 	int			color;
-	int			zoom;
 	int			color_shift;
+	double			zoom;
 	double			shift_x;
 	double			shift_y;
 	int			add;

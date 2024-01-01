@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:20:25 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 16:33:04 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:14:18 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	draw_mandelbrot(t_var *var)
 void	render_image(t_var *var)
 {
 	var->x = 0;
-	while (var->x < Width)
+	while (var->x < WIDTH)
 	{
 		var->y = 0;
-		while (var->y < Height)
+		while (var->y < HEIGHT)
 		{
 			var->z.r = 0;
 			var->z.i = 0;
-			var->c.r = interpolation(var->x, -2, 2, 800) + var->shift_x;
-			var->c.i = interpolation(var->y, -2, 2, 800) + var->shift_y;
+			var->c.r = (interpolation(var->x, -2, 2, 800) * var->zoom) + var->shift_x;
+			var->c.i = (interpolation(var->y, -2, 2, 800) * var->zoom) + var->shift_y;
 			draw_mandelbrot(var);
 			var->y++;
 		}
