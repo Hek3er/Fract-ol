@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 17:44:24 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 19:58:17 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:55:14 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	render_julia_bonus(t_var *var)
 		var->y = 0;
 		while (var->y < H)
 		{
-			var->z.r = (interp(var->x, var->r_min, var->r_max, W) * var->zoom)
+			var->z.r = (interp(var->x, var->r_min, var->r_max, W))
 				+ var->shift_x;
-			var->z.i = (interp(var->y, var->i_min, var->i_max, H) * var->zoom)
+			var->z.i = (interp(var->y, var->i_min, var->i_max, H))
 				+ var->shift_y;
 			var->c.r = var->real;
 			var->c.i = var->imaginary;

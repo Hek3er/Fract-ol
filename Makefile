@@ -10,18 +10,22 @@ O_BFILES = $(SRCS_B:.c=.o)
 
 all: $(NAME)
 
-fractol: $(O_FILES)
-		$(CC) $(CFLAGS) $(MLXFLAG) $(O_FILES) -o $(NAME)
+$(NAME): $(O_FILES)
+		@echo "Compiling mandatory."
+		@$(CC) $(CFLAGS) $(MLXFLAG) $(O_FILES) -o $(NAME)
 
-fractol_bonus: $(O_BFILES)
-		$(CC) $(CFLAGS) $(MLXFLAG) $(O_BFILES) -o $@
+bonus: $(O_BFILES)
+		@echo "Compiling Bonus."
+		@$(CC) $(CFLAGS) $(MLXFLAG) $(O_BFILES) -o fractol_bonus
 
 %.o: %.c ./includes/fractol.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(O_FILES) $(O_BFILES)
+	@echo "Deleting Object Files."
+	@rm -rf $(O_FILES) $(O_BFILES)
 
-fclean: clean
-	rm -rf $(NAME) fractol_bonus
+fclean:
+	@echo "Deleting All."
+	@rm -rf $(NAME) $(O_FILES) $(O_BFILES) fractol_bonus
 re: fclean all

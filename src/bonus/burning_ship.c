@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 01:44:36 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 19:58:49 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:55:05 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	render_burning_ship(t_var *var)
 		{
 			var->z.r = 0;
 			var->z.i = 0;
-			var->c.r = (interp(var->x, var->r_min, var->r_max, W) * var->zoom)
+			var->c.r = (interp(var->x, var->r_min, var->r_max, W))
 				+ var->shift_x;
-			var->c.i = (interp(var->y, var->r_min, var->r_max, H) * var->zoom)
+			var->c.i = (interp(var->y, var->r_min, var->r_max, H))
 				+ var->shift_y;
 			draw_burning_ship(var);
 			var->y++;

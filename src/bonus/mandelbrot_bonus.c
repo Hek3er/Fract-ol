@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:20:25 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 20:26:53 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 21:53:45 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	render_mandelbrot_bonus(t_var *var)
 		{
 			var->z.r = 0;
 			var->z.i = 0;
-			var->c.r = (interp(var->x, var->r_min, var->r_max, W) * var->zoom)
+			var->c.r = (interp(var->x, var->r_min, var->r_max, W))
 				+ var->shift_x;
-			var->c.i = (interp(var->y, var->i_min, var->i_max, H) * var->zoom)
+			var->c.i = (interp(var->y, var->i_min, var->i_max, H))
 				+ var->shift_y;
 			draw_mandelbrot(var);
 			var->y++;
