@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:42:32 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 02:01:05 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 20:14:21 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	mouse_press(int button, int x, int y, t_var *var)
 	if (button == 5)
 		var->zoom *= 0.7;
 	else if (button == 4)
-		var->zoom *= 1.05;
+		var->zoom *= 1.08;
 	if (var->id == 1)
 		render_mandelbrot_bonus(var);
 	else if (var->id == 2)

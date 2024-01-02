@@ -6,15 +6,15 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:11:34 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 01:52:07 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 20:09:56 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIDTH 800
-# define HEIGHT 800
+# define W 800
+# define H 800
 
 # include <mlx.h>
 # include <unistd.h>
@@ -62,6 +62,10 @@ typedef struct s_var
 	int				add;
 	int				tmp;
 	int				iteration;
+	int				r_min;
+	int				r_max;
+	int				i_min;
+	int				i_max;
 	t_complex		z;
 	t_complex		c;
 }				t_var;
@@ -71,7 +75,7 @@ void	mandelbrot(t_var *var);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_error(int n);
 int		ft_strncmp(char *s1, char *s2, int n);
-double	interpolation(double value, double new_min, double new_max,
+double	interp(double value, double new_min, double new_max,
 			double old_max);
 double	module(t_var *var);
 void	data_init(t_var *var);
@@ -88,5 +92,6 @@ void	julia_bonus(t_var *var);
 void	render_julia_bonus(t_var *var);
 void	burning_ship(t_var *var);
 void	render_burning_ship(t_var *var);
+void zoom(t_var *var, int x, int y);
 
 #endif

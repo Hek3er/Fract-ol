@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:20:25 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 01:13:01 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 19:59:48 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	draw_mandelbrot(t_var *var)
 		draw_pixel(var->x, var->y, &var->data.img, 0xFFFFFF);
 	else
 	{
-		var->color = interpolation(var->j, 0x000000, 0xFFFFFF, var->tmp);
+		var->color = interp(var->j, 0x000000, 0xFFFFFF, var->tmp);
 		draw_pixel(var->x, var->y, &var->data.img, var->color);
 	}
 }
@@ -43,15 +43,15 @@ static void	draw_mandelbrot(t_var *var)
 void	render_mandelbrot(t_var *var)
 {
 	var->x = 0;
-	while (var->x < WIDTH)
+	while (var->x < W)
 	{
 		var->y = 0;
-		while (var->y < HEIGHT)
+		while (var->y < H)
 		{
 			var->z.r = 0;
 			var->z.i = 0;
-			var->c.r = (interpolation(var->x, -2, 2, 800) * var->zoom);
-			var->c.i = (interpolation(var->y, -2, 2, 800) * var->zoom);
+			var->c.r = (interp(var->x, var->r_min, var->r_max, W) * var->zoom);
+			var->c.i = (interp(var->y, var->r_min, var->r_max, H) * var->zoom);
 			draw_mandelbrot(var);
 			var->y++;
 		}

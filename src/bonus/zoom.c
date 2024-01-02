@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.c                                             :+:      :+:    :+:   */
+/*   zoom.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 10:39:16 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 19:36:14 by azainabi         ###   ########.fr       */
+/*   Created: 2024/01/02 15:53:11 by azainabi          #+#    #+#             */
+/*   Updated: 2024/01/02 20:11:38 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fractol.h"
 
-double	interp(double value, double new_min, double new_max,
-	double old_max)
-{
-	return (new_min + ((new_max - new_min) * (value) / (old_max)));
-}
+void zoom(t_var *var, int x, int y) {
+    double  ax;
+    double  ay;
 
-double	module(t_var *var)
-{
-	return (var->z.r * var->z.r + var->z.i * var->z.i);
+    ax = (var->r_max - var->r_min) / W;
+    ay = (var->i_max - var->i_min) / H;
+    var->r_min = (var->r_min + ((ax * x) * 0.2));
+	var->r_max = (var->r_max - ((ax * (W - x)) * 0.2));
+	var->i_max = (var->i_max - ((ay * y) * 0.2));
+	var->i_min = (var->i_min + ((ay * (H - y)) * 0.2));
 }
