@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:11:34 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:49:19 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 01:52:07 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <math.h>
 # include <libc.h> // need to remove it
 
 typedef struct complex
@@ -81,5 +82,11 @@ void	julia(t_var *var);
 void	render_julia(t_var *var);
 double	ft_atof(char *str);
 void	print_error(void);
+void	mandelbrot_bonus(t_var *var);
+void	render_mandelbrot_bonus(t_var *var);
+void	julia_bonus(t_var *var);
+void	render_julia_bonus(t_var *var);
+void	burning_ship(t_var *var);
+void	render_burning_ship(t_var *var);
 
 #endif

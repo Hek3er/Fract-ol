@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing2.c                                         :+:      :+:    :+:   */
+/*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 20:15:04 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:22:30 by azainabi         ###   ########.fr       */
+/*   Created: 2023/12/25 18:07:08 by azainabi          #+#    #+#             */
+/*   Updated: 2024/01/02 01:04:08 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fractol.h"
+#include "../../includes/fractol.h"
 
-void	print_error(void)
+int	main(int ac, char **av)
 {
-	write(1, "Enter a valid fractal name!\n\n", 29);
-	write(1, "There is two fractals available:", 32);
-	write(1, " mandelbrot and julia\n\n", 23);
-	write(1, "Usage:\n\nMandelbrot: ./fractol mandelbrot\n", 41);
-	write(1, "\nJulia: ./fractol julia [real] [imaginary]\n", 43);
+	t_var	var;
+
+	if (ac == 2 && ft_strncmp(av[1], "mandelbrot", 10) == 0)
+	{
+		data_init(&var);
+		var.id = 1;
+		mandelbrot(&var);
+	}
+	else if (ac == 4 && ft_strncmp(av[1], "julia", 5) == 0)
+	{
+		data_init(&var);
+		var.real = ft_atof(av[2]);
+		var.imaginary = ft_atof(av[3]);
+		var.id = 2;
+		julia(&var);
+	}
+	else
+	{
+		print_error();
+	}
 }

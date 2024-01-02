@@ -6,11 +6,11 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:15:53 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:47:04 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 01:04:26 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fractol.h"
+#include "../../includes/fractol.h"
 
 int	ft_strncmp(char *s1, char *s2, int n)
 {

@@ -6,11 +6,11 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 10:39:16 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:49:44 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 01:04:23 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fractol.h"
+#include "../../includes/fractol.h"
 
 double	interpolation(double value, double new_min, double new_max,
 	double old_max)

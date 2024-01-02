@@ -6,11 +6,11 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:32:21 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:46:30 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/02 01:36:40 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fractol.h"
+#include "../../includes/fractol.h"
 
 void	ini_mlx(t_data *data)
 {
@@ -29,12 +29,12 @@ void	ini_mlx(t_data *data)
 		ft_error(3);
 	}
 	data->img.img_data = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp,
-			data->img.len, &data->img.endian);
+			&data->img.len, &data->img.endian);
 }
 
 void	data_init(t_var *var)
 {
-	var->color_shift = 10;
+	var->color_shift = 240;
 	var->zoom = 1.0;
 	var->shift_x = 0.0;
 	var->shift_y = 0.0;

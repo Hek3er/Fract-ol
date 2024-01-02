@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 17:44:24 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/01 20:48:20 by azainabi         ###   ########.fr       */
+/*   Created: 2023/12/31 10:20:25 by azainabi          #+#    #+#             */
+/*   Updated: 2024/01/02 01:13:01 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/fractol.h"
+#include "../../includes/fractol.h"
 
-static void	draw_julia(t_var *var)
+void	draw_pixel(int x, int y, t_img *img, int color)
+{
+	int	offset;
+
+	offset = (y * img->len) + (x * (img->bpp / 8));
+	*(unsigned int *)(img->img_data + offset) = color;
+}
+
+static void	draw_mandelbrot(t_var *var)
 {
 	var->z.tmp = 0;
 	var->j = 0;
@@ -32,7 +40,7 @@ static void	draw_julia(t_var *var)
 	}
 }
 
-void	render_julia(t_var *var)
+void	render_mandelbrot(t_var *var)
 {
 	var->x = 0;
 	while (var->x < WIDTH)
@@ -40,13 +48,11 @@ void	render_julia(t_var *var)
 		var->y = 0;
 		while (var->y < HEIGHT)
 		{
-			var->z.r = (interpolation(var->x, -2, 2, 800) * var->zoom)
-				+ var->shift_x;
-			var->z.i = (interpolation(var->y, -2, 2, 800) * var->zoom)
-				+ var->shift_y;
-			var->c.r = var->real;
-			var->c.i = var->imaginary;
-			draw_julia(var);
+			var->z.r = 0;
+			var->z.i = 0;
+			var->c.r = (interpolation(var->x, -2, 2, 800) * var->zoom);
+			var->c.i = (interpolation(var->y, -2, 2, 800) * var->zoom);
+			draw_mandelbrot(var);
 			var->y++;
 		}
 		var->x++;
@@ -55,10 +61,10 @@ void	render_julia(t_var *var)
 		var->data.img.mlx_img, 0, 0);
 }
 
-void	julia(t_var *var)
+void	mandelbrot(t_var *var)
 {
 	ini_mlx(&var->data);
-	render_julia(var);
+	render_mandelbrot(var);
 	init_hooks(&var->data);
 	mlx_loop(var->data.mlx_ptr);
 }
