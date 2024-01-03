@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:15:04 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/03 11:33:40 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:37:52 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	print_error(void)
 	ft_putstr_fd("[-]: To decrease iterarions\n", 2);
 	ft_putstr_fd("[SCROLL_UP]: To zoom in\n", 2);
 	ft_putstr_fd("[SCROLL_DOWN]: To zoom out\n", 2);
-	ft_putstr_fd("[← ↕ →]: To move the fractal\n", 2);
 }
