@@ -18,7 +18,7 @@ We can generate it from the recursive call of this function:
 
 ### ``` Zn+1 = Zn + c //Z(0) = 0```
 
-Z and C are complex numbers. [complex numbers](https://en.wikipedia.org/wiki/Complex_number)
+Z and C are [complex numbers](https://en.wikipedia.org/wiki/Complex_number). 
 
 ## To run the program:
 
