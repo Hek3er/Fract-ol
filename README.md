@@ -24,8 +24,8 @@ Z and C are complex numbers. [complex numbers](https://en.wikipedia.org/wiki/Com
 
 ### For the mandatory part:
 ```bash
-	git clone https://github.com/Hek3er/Fract-ol.git
-	cd Fract-ol && make
+git clone https://github.com/Hek3er/Fract-ol.git
+cd Fract-ol && make
 ```
 
 ```
@@ -41,8 +41,8 @@ Press:
 ```
 ### For Bonus Part:
 ```bash
-	git clone https://github.com/Hek3er/Fract-ol.git
-	cd Fract-ol && make bonus
+git clone https://github.com/Hek3er/Fract-ol.git
+cd Fract-ol && make bonus
 ```
 
 ```
