@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:42:32 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 21:53:39 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:18:54 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,23 @@ int	key_press(int keycode, t_var *var)
 
 int	mouse_press(int button, int x, int y, t_var *var)
 {
-	double	ax;
-	double	ay;
-
-	ax = interp(x, var->r_min, var->r_max, W);
-	ay = interp(y, var->i_min, var->i_max, H);
+	var->ax = interp(x, var->r_min, var->r_max, W);
+	var->ay = interp(y, var->i_min, var->i_max, H);
 	if (button == 4)
 	{
 		var->zoom *= 0.9;
-		var->r_min = ax + (var->r_min - ax) * 0.9;
-		var->r_max = ax + (var->r_max - ax) * 0.9;
-		var->i_min = ay + (var->i_min - ay) * 0.9;
-		var->i_max = ay + (var->i_max - ay) * 0.9;
+		var->r_min = var->ax + (var->r_min - var->ax) * 0.9;
+		var->r_max = var->ax + (var->r_max - var->ax) * 0.9;
+		var->i_min = var->ay + (var->i_min - var->ay) * 0.9;
+		var->i_max = var->ay + (var->i_max - var->ay) * 0.9;
 	}
 	else if (button == 5)
 	{
 		var->zoom *= 1.1;
-		var->r_min = ax + (var->r_min - ax) * 1.1;
-		var->r_max = ax + (var->r_max - ax) * 1.1;
-		var->i_min = ay + (var->i_min - ay) * 1.1;
-		var->i_max = ay + (var->i_max - ay) * 1.1;
+		var->r_min = var->ax + (var->r_min - var->ax) * 1.1;
+		var->r_max = var->ax + (var->r_max - var->ax) * 1.1;
+		var->i_min = var->ay + (var->i_min - var->ay) * 1.1;
+		var->i_max = var->ay + (var->i_max - var->ay) * 1.1;
 	}
 	if (var->id == 1)
 		render_mandelbrot_bonus(var);

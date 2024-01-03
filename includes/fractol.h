@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:11:34 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 21:52:52 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:20:06 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,25 @@ typedef struct s_var
 {
 	t_data			data;
 	int				id;
-	double			real;
-	double			imaginary;
 	int				j;
 	int				x;
 	int				y;
 	int				color;
 	int				color_shift;
+	int				add;
+	int				iteration;
+	int				tmp;
+	double			real;
+	double			imaginary;
 	double			zoom;
 	double			shift_x;
 	double			shift_y;
-	int				add;
-	int				tmp;
-	int				iteration;
 	double			r_min;
-	double				r_max;
-	double				i_min;
-	double				i_max;
+	double			r_max;
+	double			i_min;
+	double			i_max;
+	double			ax;
+	double			ay;
 	t_complex		z;
 	t_complex		c;
 }				t_var;
@@ -92,6 +94,5 @@ void	julia_bonus(t_var *var);
 void	render_julia_bonus(t_var *var);
 void	burning_ship(t_var *var);
 void	render_burning_ship(t_var *var);
-void	ft_zoom(t_var *emlx, int button, int x, int y);
 
 #endif

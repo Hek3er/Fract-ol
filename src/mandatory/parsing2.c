@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:15:04 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 01:04:30 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:33:40 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	print_error(void)
 {
-	write(1, "Enter a valid fractal name!\n\n", 29);
-	write(1, "There is two fractals available:", 32);
-	write(1, " mandelbrot and julia\n\n", 23);
-	write(1, "Usage:\n\nMandelbrot: ./fractol mandelbrot\n", 41);
-	write(1, "\nJulia: ./fractol julia [real] [imaginary]\n", 43);
+	ft_putstr_fd("To use type: ./fractol [FRACTAL]\n", 2);
+	ft_putstr_fd("Mandelbrot: ./fractal mandelbrot\n", 2);
+	ft_putstr_fd("Julia: ./fractol julia [r] [i]\n", 2);
+	ft_putstr_fd("\nPress:\n", 2);
+	ft_putstr_fd("[+]: To increase iterations\n", 2);
+	ft_putstr_fd("[-]: To decrease iterarions\n", 2);
+	ft_putstr_fd("[SCROLL_UP]: To zoom in\n", 2);
+	ft_putstr_fd("[SCROLL_DOWN]: To zoom out\n", 2);
+	ft_putstr_fd("[← ↕ →]: To move the fractal\n", 2);
 }

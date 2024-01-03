@@ -6,7 +6,7 @@
 /*   By: azainabi <azainabi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 20:15:04 by azainabi          #+#    #+#             */
-/*   Updated: 2024/01/02 02:06:06 by azainabi         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:32:37 by azainabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	print_error(void)
 {
-	write(1, "Enter a valid fractal name!\n\n", 29);
-	write(1, "There is three fractals available:", 34);
-	write(1, " mandelbrot, julia and burningship\n\n", 36);
-	write(1, "Usage:\n\nMandelbrot: ./fractol_bonus mandelbrot\n", 47);
-	write(1, "\nJulia: ./fractol_bonus julia [real] [imaginary]\n", 49);
-	write(1, "\nBurningship: ./fractol_bonus burningship\n", 42);
+	ft_putstr_fd("To use type: ./fractol_bonus [FRACTAL]\n", 2);
+	ft_putstr_fd("Mandelbrot: ./fractal_bonus mandelbrot\n", 2);
+	ft_putstr_fd("Julia: ./fractol_bonus julia [r] [i]\n", 2);
+	ft_putstr_fd("Burningship: ./fractal_bonus burningship\n", 2);
+	ft_putstr_fd("\nPress:\n", 2);
+	ft_putstr_fd("[C]: To change the color\n", 2);
+	ft_putstr_fd("[+]: To increase iterations\n", 2);
+	ft_putstr_fd("[-]: To decrease iterarions\n", 2);
+	ft_putstr_fd("[SCROLL_UP]: To zoom in\n", 2);
+	ft_putstr_fd("[SCROLL_DOWN]: To zoom out\n", 2);
+	ft_putstr_fd("[← ↕ →]: To move the fractal\n", 2);
 }
