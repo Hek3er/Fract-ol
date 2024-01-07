@@ -2,7 +2,7 @@
 
 ![fractal](/img/mandelbrot.png?raw=true)
 
-## What is a fractals?
+## What is a fractal?
 Fractal is an abstract mathematical object, like a curve or a surface, which pattern
 remains the same at every scale.
 
