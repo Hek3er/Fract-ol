@@ -69,7 +69,7 @@ Press:
 
 [**Understand Mandelbrot**](https://www.youtube.com/watch?v=FFftmWSzgmk&t=426s) **Great video to understand mandelbrot and the concept of fractals.**
 
-[**Geogebra**](geogebra.org/m/mfewjrek) **Play with mandelbrot in a graph.**
+[**Geogebra**](https://www.geogebra.org/m/mfewjrek) **Play with mandelbrot in a graph.**
 
 [**Oceano**](https://youtu.be/ANLW1zYbLcs?feature=shared) **Great video by Oceano of implementaion of fractals using Minilibx**
 
